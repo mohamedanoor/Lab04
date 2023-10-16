@@ -37,10 +37,10 @@ public class searchBT extends BinaryTree<Integer>
             level++;
             if(localRoot.data > item) localRoot = localRoot.left;
             else if(localRoot.data < item) localRoot = localRoot.right;
-            else return level;
+            else return level; // item found!
         }
 
-        return -1;
+        return -1; // item was not found
     }
 
     /**
@@ -57,7 +57,7 @@ public class searchBT extends BinaryTree<Integer>
 
         // getLevel
         final int level = getLevel(10);
-        if(level != -1) System.out.printf("This tree contains value 10 at level %d!\n", level);
+        if(level != -1) System.out.printf("This tree contains value 10 at level %d (where the root is level 0)!\n", level);
         else System.out.println("This tree does not contain value 10!");
     }
 }
