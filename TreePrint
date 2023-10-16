@@ -1,0 +1,19 @@
+public class TreePrint<E> extends BinaryTree<E> {
+    public void postOrder() {
+        postOrderRec(root);
+    }
+    private void postOrderRec(Node<E> node) {
+        if (node == null) 
+  return;   
+        postOrderRec(node.left);
+        postOrderRec(node.right);
+      System.out.print(node.data + " ");
+    }
+public void printRight() {
+        printRightRec(root);
+    }
+ private void printRightRec(Node<E> node) {
+        if (node == null) return;
+ printRightRec(node.right);
+System.out.print(node.data + " ");
+    }
