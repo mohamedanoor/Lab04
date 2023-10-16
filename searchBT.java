@@ -9,6 +9,9 @@ public class searchBT extends BinaryTree<Integer>
     /**
      * @param item the item to be compared.
      * @return true if there is an item greater than the input in the tree, otherwise false.
+     *
+     * @since 16 October 2023
+     * @author Julian Edwards
      */
     public boolean containsGreater(final int item) {
         Node<Integer> localRoot = root;
@@ -23,6 +26,9 @@ public class searchBT extends BinaryTree<Integer>
     /**
      * @param item the item to try to find.
      * @return the level of the item in the tree, -1 if not found.
+     *
+     * @since 16 October 2023
+     * @author Julian Edwards
      */
     public int getLevel(final int item) {
         Node<Integer> localRoot = root;
@@ -39,6 +45,9 @@ public class searchBT extends BinaryTree<Integer>
 
     /**
      * Calls the two methods above this (using dummy values) and prints the output.
+     *
+     * @since 16 October 2023
+     * @author Julian Edwards
      */
     @Override
     public void testing() {
