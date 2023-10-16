@@ -5,4 +5,4 @@ protected static class Node<E> {
 E data;
 Node <E> left;
 Node <E> right;
-}
+}}
