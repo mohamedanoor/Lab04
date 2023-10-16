@@ -36,4 +36,19 @@ public class searchBT extends BinaryTree<Integer>
 
         return -1;
     }
+
+    /**
+     * Calls the two methods above this (using dummy values) and prints the output.
+     */
+    @Override
+    public void testing() {
+        // containsGreater
+        if(containsGreater(10)) System.out.println("This tree contains a value greater than 10!");
+        else System.out.println("This tree does not contain a value greater than 10!");
+
+        // getLevel
+        final int level = getLevel(10);
+        if(level != -1) System.out.printf("This tree contains value 10 at level %d!\n", level);
+        else System.out.println("This tree does not contain value 10!");
+    }
 }
