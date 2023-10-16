@@ -1,19 +1,57 @@
-public class TreePrint<E> extends BinaryTree<E> {
+public class TreePrint extends BinaryTree<Integer> {
+
+    
     public void postOrder() {
         postOrderRec(root);
     }
-    private void postOrderRec(Node<E> node) {
-        if (node == null) 
-  return;   
+
+    private void postOrderRec(Node<Integer> node) {
+        if (node == null) return;
+
+       
         postOrderRec(node.left);
+
+       
         postOrderRec(node.right);
-      System.out.print(node.data + " ");
+
+       
+        System.out.print(node.data + " ");
     }
-public void printRight() {
+
+   
+    public void printRight() {
         printRightRec(root);
     }
- private void printRightRec(Node<E> node) {
+
+    private void printRightRec(Node<Integer> node) {
         if (node == null) return;
- printRightRec(node.right);
-System.out.print(node.data + " ");
+
+       
+        printRightRec(node.right);
+
+       
+        System.out.print(node.data + " ");
     }
+
+   
+    public static void main(String[] args) {
+      TreePrint tree = new TreePrint();
+      tree.Testing();
+       
+    }
+    @Override
+    public void Testing() {
+        // Create a sample tree
+        root = new Node<>(1);
+        root.left = new Node<>(2);
+        root.right = new Node<>(3);
+        root.left.left = new Node<>(4);
+        root.left.right = new Node<>(5);
+        
+        System.out.print("Post order traversal: ");
+        postOrder();  // Output: 4 5 2 3 1
+        
+        System.out.print("\nRightmost path: ");
+        printRight();  // Output: 3 1
+    }
+}
