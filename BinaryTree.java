@@ -5,7 +5,7 @@
  * @author Julian Edwards, Mohamed Danoor
  *
  */
-public class BinaryTree<E>
+public abstract class BinaryTree<E>
 {
     protected Node<E> root;
     // Nested Class for a tree node
@@ -14,4 +14,10 @@ public class BinaryTree<E>
         E data;
         Node <E> left, right, parent;
     }
+
+    /**
+     * "BinaryTree has a method testing that each of the subclasses that are implemented in Step 2 will
+     * override it; its return type is void."
+     */
+    public abstract void testing();
 }
