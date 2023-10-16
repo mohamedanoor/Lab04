@@ -15,8 +15,8 @@ public class searchBT extends BinaryTree<Integer>
      */
     public boolean containsGreater(final int item) {
         Node<Integer> localRoot = root;
-        while(localRoot != null) { // search the root and all right children for data greater than item
-            if(localRoot.data <= item) localRoot = localRoot.right;
+        while(localRoot != null) { // search all nodes in this tree
+            if(localRoot.data <= item) localRoot = successor(localRoot);
             else return true;
         }
 
@@ -32,9 +32,9 @@ public class searchBT extends BinaryTree<Integer>
      */
     public int getLevel(final int item) {
         Node<Integer> localRoot = root;
-        int level = 0;
-        while(localRoot != null) {
-            level++;
+        // set level 0 as the root, if you want it to start at level 1, change the 0 here to a 1
+        // starting with the root level as 0 instead of 1 makes it more consistent with other java data structures
+        for(int level = 0; localRoot != null; level++) {
             if(localRoot.data > item) localRoot = localRoot.left;
             else if(localRoot.data < item) localRoot = localRoot.right;
             else return level; // item found!
@@ -59,5 +59,30 @@ public class searchBT extends BinaryTree<Integer>
         final int level = getLevel(10);
         if(level != -1) System.out.printf("This tree contains value 10 at level %d (where the root is level 0)!\n", level);
         else System.out.println("This tree does not contain value 10!");
+    }
+
+    /**
+     * Code and documentation from lecture: finds the successor of a specified Node.
+     * @author Behrooz Mansouri
+     */
+    protected Node<Integer> successor(final Node<Integer> node) {
+        if (node == null)
+            return null;
+        else if (node.right != null) {
+            // WALK DOWN: successor is leftmost Node in right subtree
+            Node<Integer> c = node.right;
+            while (c.left != null)
+                c = c.left;
+            return c;
+        } else { // WALK UP: node has no right child
+            // go up the tree until arrive by a left edge of parent
+            Node<Integer> p = node.parent;
+            Node<Integer> c = node;
+            while (p != null && c == p.right) {
+                c = p;
+                p = p.parent;
+            }
+            return p;
+        }
     }
 }
