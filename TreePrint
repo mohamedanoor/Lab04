@@ -1,6 +1,15 @@
+/**
+ * TreePrint is a class that extends BinaryTree and demonstrates post-order traversal
+ * and printing the rightmost path of a binary tree.
+ *
+ * @since 16 October 2023
+ * @author Liban
+ */
 public class TreePrint extends BinaryTree<Integer> {
 
-    
+    /**
+     * Performs a post-order traversal of the binary tree and prints the nodes.
+     */
     public void postOrder() {
         postOrderRec(root);
     }
@@ -18,7 +27,10 @@ public class TreePrint extends BinaryTree<Integer> {
         System.out.print(node.data + " ");
     }
 
-   
+    /**
+     * Prints the nodes on the rightmost path of the binary tree.
+     */
+
     public void printRight() {
         printRightRec(root);
     }
@@ -33,7 +45,11 @@ public class TreePrint extends BinaryTree<Integer> {
         System.out.print(node.data + " ");
     }
 
-   
+    /**
+     * Main method to create a TreePrint instance and run the testing.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
       TreePrint tree = new TreePrint();
       tree.Testing();
